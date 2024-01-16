@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class AppointmentServiceImpl implements AppointmentService {
-    AppointmentRepository appointmentRepository;
-    ModelMapper modelMapper;
+    private AppointmentRepository appointmentRepository;
+    private ModelMapper modelMapper;
 
     @Override
     public AppointmentDto createAppointment(AppointmentDto appointmentDto) {

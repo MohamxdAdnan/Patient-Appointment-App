@@ -18,8 +18,8 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class DoctorServiceImpl implements DoctorService {
-    DoctorRepository doctorRepository;
-    ModelMapper modelMapper;
+    private DoctorRepository doctorRepository;
+    private ModelMapper modelMapper;
 
 
     @Override

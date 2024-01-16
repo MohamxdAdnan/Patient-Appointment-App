@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/api/Medications")
 public class MedicationController {
 
-    MedicationService medicationService;
+    private MedicationService medicationService;
 
     @PostMapping("create")
     public ResponseEntity<MedicationDto> createMedication(@RequestBody MedicationDto medicationDto){

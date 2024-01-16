@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class MedicationServiceImpl implements MedicationService {
-    MedicationRepository medicationRepository;
-    ModelMapper modelMapper;
+    private MedicationRepository medicationRepository;
+    private ModelMapper modelMapper;
 
     @Override
     public MedicationDto createMedication(MedicationDto medicationDto) {

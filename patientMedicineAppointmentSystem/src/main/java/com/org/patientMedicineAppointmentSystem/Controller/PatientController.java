@@ -1,5 +1,6 @@
 package com.org.patientMedicineAppointmentSystem.Controller;
 
+
 import com.org.patientMedicineAppointmentSystem.Dto.PatientDto;
 import com.org.patientMedicineAppointmentSystem.Service.PatientService;
 import lombok.AllArgsConstructor;
@@ -13,7 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/api/Patients")
 public class PatientController {
-    PatientService patientService;
+    private PatientService patientService;
+
 
     @PostMapping("create")
     public ResponseEntity<PatientDto> createPatient(@RequestBody PatientDto patientDto){

@@ -16,8 +16,8 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class PatientServiceImpl implements PatientService {
 
-    PatientRepository patientRepository;
-    ModelMapper modelMapper;
+    private PatientRepository patientRepository;
+    private ModelMapper modelMapper;
 
     @Override
     public PatientDto createPatient(PatientDto patientDto) {

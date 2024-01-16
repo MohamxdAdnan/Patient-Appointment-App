@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/api/Doctors")
 public class DoctorController {
-    DoctorService doctorService;
+    private DoctorService doctorService;
     @PostMapping("create")
     public ResponseEntity<DoctorDto> createDoctor(@RequestBody DoctorDto doctorDto){
         DoctorDto createdDoctor = doctorService.createDoctor(doctorDto);

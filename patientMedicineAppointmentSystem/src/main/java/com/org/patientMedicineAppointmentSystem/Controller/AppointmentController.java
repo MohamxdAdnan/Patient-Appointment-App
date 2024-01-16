@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/api/Appointments")
 public class AppointmentController {
-    AppointmentService appointmentService;
+    private AppointmentService appointmentService;
 
     @PostMapping("create")
     public ResponseEntity<AppointmentDto> createAppointment(@RequestBody AppointmentDto appointmentDto){
