@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,6 +22,10 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public PatientDto createPatient(PatientDto patientDto) {
+        Optional<Patient> existingPatient = patientRepository.findByEmail(patientDto.getEmail());
+        if(existingPatient.isPresent()){
+            throw new ResourceNotFoundException("Email Already Exists");
+        }
         Patient patient = modelMapper.map(patientDto, Patient.class);
         Patient newPatient = patientRepository.save(patient);
         return modelMapper.map(newPatient,PatientDto.class);
