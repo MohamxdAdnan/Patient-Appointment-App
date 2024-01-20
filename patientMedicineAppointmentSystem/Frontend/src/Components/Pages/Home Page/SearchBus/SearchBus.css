@@ -1,0 +1,50 @@
+body {
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgb(61, 126, 138);
+  
+  }
+.form{
+    display:flex;
+    justify-content: space-around;
+}
+
+input{
+    margin-left: 10px;
+    font-size: medium;
+}
+
+.home-card{
+    margin:auto;
+  background: #8ad2db;
+  padding: 2px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+button{
+    color:rgb(31, 41, 61);
+      font-size: 1rem;
+      font-weight: 400;
+        border-radius: 10px;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background:  #fff;
+    }
+
+    .form-item label {
+        font-size: large;
+
+        color: #333;
+      }
+      
+      .form-item input {
+        float:right;
+        margin-left:10px;
+      
+        border-radius:5px;
+        padding:5px;
+      }
