@@ -1,15 +1,14 @@
 package com.org.patientMedicineAppointmentSystem.Dto;
 
+import com.org.patientMedicineAppointmentSystem.Entity.Appointment;
+import com.org.patientMedicineAppointmentSystem.Entity.Patient;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.Date;
+
 
 @Schema(
         description = "Doctor DTO Model Info"
@@ -30,12 +29,18 @@ public class DoctorDto {
     )
     private String specialisation;
     @Schema(
-            description = "Doctor Visiting Hours"
+            description = "Doctor Visiting Hours From"
     )
-    private String visitingHours;
+    private Date visitingHoursFrom;
     @Schema(
-            description = "Patient List"
+            description = "Doctor Visiting Hours To"
     )
-    private List<String> patients;
+    private Date visitingHoursTo;
+    @Schema(
+            description = "Patient Info"
+    )
+    private Patient patient;
+
+
 
 }

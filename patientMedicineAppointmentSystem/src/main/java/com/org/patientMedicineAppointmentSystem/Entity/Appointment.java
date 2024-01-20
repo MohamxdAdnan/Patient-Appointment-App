@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Time;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,6 +21,10 @@ public class Appointment {
     @Column(nullable = false)
     private String patientName;
     @Column(nullable = false)
-    private String appointmentTime;
+    private Time appointmentTime;
+    @ManyToOne
+    @JoinColumn(name="doctor_id")
+    private Doctor doctor;
+
 
 }

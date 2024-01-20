@@ -24,4 +24,7 @@ public class Medication {
     private List<String> patients;
     @Column(nullable = false)
     private String inStock;
+    @ManyToOne
+    @JoinColumn(name="patient_id")
+    private Patient patient;
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="appmnt.css">
+    <title>Patient Appointment</title>
+</head>
+<body>
+
+<header>
+    <h1>Patient Appointment System</h1>
+</header>
+
+<main>
+    <section class="appointment-form">
+        <h2>Book an Appointment</h2>
+        <form action="#" method="post">
+            <label for="patientName">Your Name:</label>
+            <input type="text" id="patientName" name="patientName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="appointmentDate">Preferred Date:</label>
+            <input type="date" id="appointmentDate" name="appointmentDate" required>
+
+            <label for="doctor">Select Doctor:</label>
+            <select id="doctor" name="doctor" required>
+                <option value="drSmith">Dr. Smith</option>
+                <option value="drJones">Dr. Jones</option>
+                <option value="drBrown">Dr. Brown</option>
+            </select>
+
+            <button type="submit">Book Appointment</button>
+        </form>
+    </section>
+</main>
+
+
+</body>
+</html>

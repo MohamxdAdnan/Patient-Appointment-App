@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.sql.Time;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,7 +32,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     public AppointmentDto updateAppointment(AppointmentDto appointmentDto, Long appointmentId) {
         Appointment appointment = appointmentRepository.findById(appointmentId)
                 .orElseThrow(() -> new ResourceNotFoundException("Appointment not found with id:" + appointmentId));
-        appointment.setAppointmentTime(appointmentDto.getAppointmentTime());
+        appointment.setAppointmentTime(Time.valueOf(appointmentDto.getAppointmentTime()));
         appointment.setDoctorName(appointmentDto.getDoctorName());
         appointment.setPatientName(appointmentDto.getPatientName());
 

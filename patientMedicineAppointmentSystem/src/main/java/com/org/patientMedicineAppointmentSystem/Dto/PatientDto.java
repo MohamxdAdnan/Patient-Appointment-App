@@ -1,9 +1,14 @@
 package com.org.patientMedicineAppointmentSystem.Dto;
 
+import com.org.patientMedicineAppointmentSystem.Entity.Doctor;
+import com.org.patientMedicineAppointmentSystem.Entity.Role;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
+import java.util.Set;
 
 @Schema(
         description = "Patient DTO Model Info"
@@ -34,4 +39,7 @@ public class PatientDto {
             description = "Medical History"
     )
     private String medicalHistory;
+    private List<Doctor> doctors;
+
+    private Set<Role> roles;
 }

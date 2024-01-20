@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -26,6 +28,12 @@ public class Patient {
     private String contact;
     @Column(nullable = false)
     private String medicalHistory;
+    @OneToMany(mappedBy = "patient")
+    private List<Doctor> doctors;
+    @OneToMany(mappedBy = "patient")
+    private List<Medication> medications;
+
+
 
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinTable(name = "patient_roles",

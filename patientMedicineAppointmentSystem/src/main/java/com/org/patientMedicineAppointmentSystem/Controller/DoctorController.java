@@ -17,8 +17,9 @@ import java.util.List;
         name = "CRUD API's for Doctor Resource"
 )
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
-@RequestMapping("/api/Doctors")
+@RequestMapping("/api/doctors")
 public class DoctorController {
     private DoctorService doctorService;
 

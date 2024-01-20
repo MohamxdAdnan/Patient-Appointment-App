@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -21,10 +23,14 @@ public class Doctor {
     private String doctorName;
     @Column(nullable = false)
     private String specialisation;
-    @Column(nullable = false)
-    private String visitingHours;
-    @Column(nullable = false)
-    private List<String> patients;
+    private Date visitingHoursFrom;
+    private Date visitingHoursTo;
+    @ManyToOne
+    @JoinColumn(name="patient_id")
+    private Patient patient;
+    @OneToMany(mappedBy = "doctor")
+    private List<Appointment> appointments;
+
 
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinTable(name = "doctor_roles",

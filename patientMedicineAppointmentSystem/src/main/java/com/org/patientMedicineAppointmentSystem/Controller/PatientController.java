@@ -1,8 +1,10 @@
 package com.org.patientMedicineAppointmentSystem.Controller;
 
 
+import com.org.patientMedicineAppointmentSystem.Dto.LoginDto;
 import com.org.patientMedicineAppointmentSystem.Dto.PatientDto;
 import com.org.patientMedicineAppointmentSystem.Service.PatientService;
+import com.org.patientMedicineAppointmentSystem.exception.ResourceNotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -12,16 +14,25 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Tag(
         name = "CRUD API's for Patient Resource"
 )
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @AllArgsConstructor
-@RequestMapping("/api/Patients")
+@RequestMapping("/api/patients")
 public class PatientController {
     private PatientService patientService;
 
+//    public ResponseEntity<String> login(@RequestBody LoginDto loginDto){
+//        Optional<PatientDto> patientExist = Optional.ofNullable(patientService
+//                .getLoginInfo(loginDto.getUsername(), loginDto.getPassword())
+//                .orElseThrow(new ResourceNotFoundException("Email or Password incorrect")));
+//
+//        return new ResponseEntity<>("OK",HttpStatus.OK);
+//    }
 
     @Operation(
             summary = "Create Patient Resource"

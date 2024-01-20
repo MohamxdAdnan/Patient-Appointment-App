@@ -36,8 +36,8 @@ public class DoctorServiceImpl implements DoctorService {
                 .orElseThrow(() -> new ResourceNotFoundException("Doctor not found with id:" + doctorId));
         doctor.setDoctorName(doctorDto.getDoctorName());
         doctor.setSpecialisation(doctorDto.getSpecialisation());
-        doctor.setVisitingHours(doctorDto.getVisitingHours());
-        doctor.setPatients(doctorDto.getPatients());
+        doctor.setVisitingHoursFrom(doctorDto.getVisitingHoursFrom());
+        doctor.setVisitingHoursTo(doctorDto.getVisitingHoursTo());
 
 
         Doctor newDoctor = doctorRepository.save(doctor);

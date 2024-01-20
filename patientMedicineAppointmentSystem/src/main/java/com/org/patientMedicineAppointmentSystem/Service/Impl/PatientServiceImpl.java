@@ -1,9 +1,13 @@
 package com.org.patientMedicineAppointmentSystem.Service.Impl;
 
 import com.org.patientMedicineAppointmentSystem.Dto.PatientDto;
+import com.org.patientMedicineAppointmentSystem.Dto.RoleDto;
 import com.org.patientMedicineAppointmentSystem.Entity.Patient;
+import com.org.patientMedicineAppointmentSystem.Entity.Role;
 import com.org.patientMedicineAppointmentSystem.Repository.PatientRepository;
+import com.org.patientMedicineAppointmentSystem.Repository.RoleRepository;
 import com.org.patientMedicineAppointmentSystem.Service.PatientService;
+import com.org.patientMedicineAppointmentSystem.Service.RoleService;
 import com.org.patientMedicineAppointmentSystem.exception.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -11,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -18,6 +23,7 @@ import java.util.stream.Collectors;
 public class PatientServiceImpl implements PatientService {
 
     private PatientRepository patientRepository;
+    private RoleService roleService;
     private ModelMapper modelMapper;
 
     @Override
@@ -26,6 +32,8 @@ public class PatientServiceImpl implements PatientService {
         if(existingPatient.isPresent()){
             throw new ResourceNotFoundException("Email Already Exists");
         }
+        RoleDto roleDto = new RoleDto("ROLE_USER");
+        patientDto.setRoles((Set<Role>) roleService.createRole(roleDto));
         Patient patient = modelMapper.map(patientDto, Patient.class);
         Patient newPatient = patientRepository.save(patient);
         return modelMapper.map(newPatient,PatientDto.class);
@@ -67,4 +75,10 @@ public class PatientServiceImpl implements PatientService {
                 .map((patient)->modelMapper.map(patient, PatientDto.class)).collect(Collectors.toList());
         return allPatientDtos;
     }
+
+    @Override
+    public Optional<PatientDto> getLoginInfo(String username, String password) {
+        return Optional.empty();
+    }
+
 }
